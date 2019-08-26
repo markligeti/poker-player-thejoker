@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "4.0.7"
+    VERSION = "8.0"
 
     players = None
     my_id = None
@@ -49,6 +49,8 @@ class Player:
         elif self.check_for_pairs():
             return self.get_my_stack()
         elif self.check_flush():
+            return self.get_my_stack()
+        elif self.check_straight():
             return self.get_my_stack()
         else:
             return self.get_minimum_amount_to_bet()

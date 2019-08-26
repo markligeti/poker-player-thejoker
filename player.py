@@ -88,3 +88,14 @@ class Player:
             return True
         else:
             return False
+
+    def check_straight(self):
+        sorted_cards = sorted(self.all_cards, key=lambda c: c["rank"])
+        boolean = False
+
+        for card, n in enumerate(sorted_cards):
+            if abs(card - sorted_cards[n + 1]) == 1:
+                boolean = True
+            else:
+                boolean = False
+        return boolean

@@ -2,7 +2,7 @@ from random import randint
 
 
 class Player:
-    VERSION = "1.5"
+    VERSION = "1.5.2"
 
     def bet_request(self, game_state):
         # small_blind = game_state['small_blind']
@@ -13,6 +13,7 @@ class Player:
         #     return highest_bet + small_blind
         #
         # else:
+        print(f"kutyámajom!")
         return game_state["current_buy_in"] - game_state["players"]["in_action"]["bet"]
 
     def showdown(self, game_state):

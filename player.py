@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "2.2.8"
+    VERSION = "3.0"
 
     players = None
     my_id = None
@@ -11,11 +11,8 @@ class Player:
         self.players = game_state["players"]
         self.my_id = game_state["in_action"]
         self.round = game_state["round"]
-        # self.hand = self.players[self.my_id]["hole_cards"]
-        # self.com_cards = game_state["community_cards"]
-
-        # print("PRINT MY HAND: " + self.hand)
-        # print("PRINT COM CARDS: " + self.com_cards)
+        self.com_cards = game_state["community_cards"]
+        self.hand = self.get_hand()
 
         bet = self.set_own_bet()
         return bet
@@ -34,3 +31,8 @@ class Player:
             return 0
         else:
             return self.get_my_stack()
+
+    def get_hand(self):
+        for player in self.players:
+            if player["id"] == self.my_id:
+                return player["hole_cards"]

@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "8.0"
+    VERSION = "8.2"
 
     players = None
     my_id = None
@@ -101,6 +101,6 @@ class Player:
                     boolean = True
                 else:
                     boolean = False
-            except():
+            except IndexError:
                 continue
         return boolean

@@ -13,14 +13,21 @@ class Player:
         #     return highest_bet + small_blind
         #
         # else:
-        print(f"kutyámajom!")
+        # print(f"kutyámajom!")
         return game_state["current_buy_in"] - game_state["players"]["in_action"]["bet"]
 
     def showdown(self, game_state):
         pass
 
-    def get_player_bets(self, game_state):
+    def get_hole_cards(self, game_state):
+        for player in game_state["players"]:
+            if player["name"] == "TheJoker":
+                return player["hole_cards"]
 
+    def get_com_cards(self, game_state):
+        return game_state["community_cards"]
+
+    def get_player_bets(self, game_state):
         player_bet = 0
 
         for player in game_state['players']:

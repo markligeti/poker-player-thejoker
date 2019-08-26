@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "2.2.5"
+    VERSION = "2.2.7"
 
     players = None
     my_id = None
@@ -17,7 +17,7 @@ class Player:
         print("PRINT MY HAND: " + self.hand)
         print("PRINT COM CARDS: " + self.com_cards)
 
-        bet = self.set_own_bet(game_state)
+        bet = self.set_own_bet()
         return bet
 
     def get_my_stack(self):

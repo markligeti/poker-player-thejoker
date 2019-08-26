@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "2.2.3"
+    VERSION = "2.2.5"
 
     players = None
     my_id = None
@@ -13,6 +13,9 @@ class Player:
         self.round = game_state["round"]
         self.hand = self.players[self.my_id]["hole_cards"]
         self.com_cards = game_state["community_cards"]
+
+        print("PRINT MY HAND: " + self.hand)
+        print("PRINT COM CARDS: " + self.com_cards)
 
         bet = self.set_own_bet(game_state)
         return bet

@@ -22,7 +22,7 @@ class Player:
 
         player_bet = 0
 
-        for player in game_state['player']:
+        for player in game_state['players']:
             if player_bet < player_bet['bet']:
                 player_bet = player['bet']
 

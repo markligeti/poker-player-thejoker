@@ -2,7 +2,7 @@ from random import randint
 
 
 class Player:
-    VERSION = "1.2"
+    VERSION = "1.3"
 
     def bet_request(self, game_state):
         small_blind = game_state['small_blind']

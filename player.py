@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "4.0.1"
+    VERSION = "4.0.2"
 
     players = None
     my_id = None
@@ -40,7 +40,7 @@ class Player:
         if self.round == 0:
             return 0
 
-        elif self.bet_index == 1:
+        elif len(self.com_cards) == 0:
             if self.get_minimum_amount_to_bet() > 400:
                 return 0
             else:

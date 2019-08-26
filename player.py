@@ -2,7 +2,7 @@ from random import randint
 
 
 class Player:
-    VERSION = "1.6"
+    VERSION = "1.7"
 
     def bet_request(self, game_state):
         # small_blind = game_state['small_blind']
@@ -13,7 +13,7 @@ class Player:
         #     return highest_bet + small_blind
         #
         # else:
-        return game_state["players"]["in_action"]["stack"]
+        return game_state["players"][game_state["in_action"]]["stack"]
 
     def showdown(self, game_state):
         pass

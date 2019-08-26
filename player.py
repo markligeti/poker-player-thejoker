@@ -37,9 +37,9 @@ class Player:
 
     def check_for_pairs(self):
 
-        for c_card in self.com_cards:
+        for key, val in self.com_cards.items():
             for card in self.hand:
-                if c_card['rank'] == card['rank']:
+                if key == 'rank' and card['rank'] == val:
                     return True
 
 

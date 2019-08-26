@@ -1,28 +1,28 @@
 class Player:
-    VERSION = "2.1.3"
+    VERSION = "2.2"
+
+    players = None
+    my_id = None
 
     def betRequest(self, game_state):
-        return self.set_own_bet(game_state)
+        self.players = game_state["players"]
+        self.my_id = game_state["in_action"]
 
-        # return int(game_state["players"][game_state["in_action"]]["stack"])
+        bet = self.set_own_bet(game_state)
+
+        return bet
+
+    def get_my_stack(self):
+        for player in self.players:
+            if player["id"] == self.my_id:
+                stack = int(player["stack"])
+                return stack
 
     def showdown(self, game_state):
         pass
-
-    def get_player_bets(self, game_state):
-        player_bet = 0
-
-        for player in game_state['players']:
-            if player_bet < player_bet['bet']:
-                player_bet = player['bet']
-
-        return player_bet
 
     def set_own_bet(self, game_state):
         if game_state["round"] == 0:
             return 0
         else:
-            for player in game_state["players"]:
-                if player["id"] == game_state["in_action"]:
-                    print(player["stack"])
-                    return int(player["stack"])
+            return self.get_my_stack()

@@ -1,11 +1,8 @@
 class Player:
-    VERSION = "2.1"
+    VERSION = "2.1.1"
 
     def betRequest(self, game_state):
-        for player in game_state["players"]:
-            if player["id"] == game_state["in_action"]:
-                print(player["stack"])
-                return int(player["stack"])
+        self.set_own_bet(self, game_state)
 
         # return int(game_state["players"][game_state["in_action"]]["stack"])
 
@@ -20,3 +17,12 @@ class Player:
                 player_bet = player['bet']
 
         return player_bet
+
+    def set_own_bet(self, game_state):
+        if game_state["round"] == 0:
+            return 0
+        else:
+            for player in game_state["players"]:
+                if player["id"] == game_state["in_action"]:
+                    print(player["stack"])
+                    return int(player["stack"])

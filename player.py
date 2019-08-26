@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "4.0.7"
+    VERSION = "4.0.8"
 
     players = None
     my_id = None
@@ -44,12 +44,12 @@ class Player:
     def set_own_bet(self):
         if self.round == 0:
             return 0
-        elif self.get_minimum_amount_to_bet() > 400:
-            return 0
         elif self.check_for_pairs():
             return self.get_my_stack()
         elif self.check_flush():
             return self.get_my_stack()
+        elif self.get_minimum_amount_to_bet() > 400:
+            return 0
         else:
             return self.get_minimum_amount_to_bet()
 

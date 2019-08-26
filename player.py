@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "4.0.6"
+    VERSION = "4.0.7"
 
     players = None
     my_id = None
@@ -60,7 +60,6 @@ class Player:
         return int(self.current_buy_in) - int(self.minimum_raise) + int(self.player_info["bet"])
 
     def check_for_pairs(self):
-
         for c_card in self.com_cards:
             for card in self.hand:
                 if c_card['rank'] == card['rank']:

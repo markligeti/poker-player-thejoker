@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "2.3"
+    VERSION = "2.3.3"
 
     players = None
     my_id = None

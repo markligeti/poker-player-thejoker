@@ -1,8 +1,8 @@
 class Player:
-    VERSION = "2.1.1"
+    VERSION = "2.1.2"
 
     def betRequest(self, game_state):
-        self.set_own_bet(self, game_state)
+        self.set_own_bet(game_state)
 
         # return int(game_state["players"][game_state["in_action"]]["stack"])
 

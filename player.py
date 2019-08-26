@@ -48,8 +48,8 @@ class Player:
             return self.get_my_stack()
         elif self.check_flush():
             return self.get_my_stack()
-        elif self.check_straight():
-            return self.get_my_stack()
+        # elif self.check_straight():
+        #     return self.get_my_stack()
         elif self.get_minimum_amount_to_bet() > 400:
             return 0
         else:
@@ -91,16 +91,16 @@ class Player:
         else:
             return False
 
-    def check_straight(self):
-        sorted_cards = sorted(self.all_cards, key=lambda c: c["rank"])
-        boolean = False
-
-        for card, n in enumerate(sorted_cards):
-            try:
-                if abs(card - sorted_cards[n + 1]) == 1:
-                    boolean = True
-                else:
-                    boolean = False
-            except IndexError:
-                continue
-        return boolean
+    # def check_straight(self):
+    #     sorted_cards = sorted(self.all_cards, key=lambda c: c["rank"])
+    #     boolean = False
+    #
+    #     for card, n in enumerate(sorted_cards):
+    #         try:
+    #             if abs(card - sorted_cards[n + 1]) == 1:
+    #                 boolean = True
+    #             else:
+    #                 boolean = False
+    #         except IndexError:
+    #             continue
+    #     return boolean

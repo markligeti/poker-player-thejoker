@@ -7,6 +7,10 @@ class Player:
     hand = None
     com_cards = None
     all_cards = None
+    bet_index = None
+    current_buy_in = None
+    minimum_raise = None
+    player_info = None
 
     def betRequest(self, game_state):
         self.players = game_state["players"]
@@ -15,9 +19,18 @@ class Player:
         self.com_cards = game_state["community_cards"]
         self.hand = self.get_hand()
         self.all_cards = self.hand + self.com_cards
+        self.bet_index = game_state["bet_index"]
+        self.current_buy_in = game_state["current_buy_in"]
+        self.minimum_raise = game_state["minimum_raise"]
+        self.player_info = self.get_player_info()
 
         bet = self.set_own_bet()
         return bet
+
+    def get_player_info(self):
+        for player in self.players:
+            if player["id"] == self.my_id:
+                return player
 
     def get_my_stack(self):
         for player in self.players:
@@ -31,12 +44,23 @@ class Player:
     def set_own_bet(self):
         if self.round == 0:
             return 0
+
+        elif len(self.com_cards) == 0:
+            if self.get_minimum_amount_to_bet() > 400:
+                return 0
+            else:
+                return self.get_minimum_amount_to_bet()
+
         elif self.check_for_pairs():
             return self.get_my_stack()
         elif self.check_flush():
             return self.get_my_stack()
         else:
             return 0
+
+    def get_minimum_amount_to_bet(self):
+
+        return int(self.current_buy_in) - int(self.minimum_raise) + int(self.player_info["bet"])
 
     def check_for_pairs(self):
 

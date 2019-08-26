@@ -29,7 +29,7 @@ class Player:
     def showdown(self, game_state):
         pass
 
-    def set_own_bet(self, game_state):
+    def set_own_bet(self):
         if self.round == 0:
             return 0
         else:

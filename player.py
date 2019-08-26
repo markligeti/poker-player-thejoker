@@ -27,7 +27,7 @@ class Player:
     def get_player_bets(self, game_state):
         player_bet = 0
         for player in game_state['players']:
-            if player_bet < player_bet['bet']:
+            if player_bet < player['bet']:
                 player_bet = player['bet']
         print(f"kutyámajom - player bets: {player_bet}")
         return player_bet

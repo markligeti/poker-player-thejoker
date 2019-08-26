@@ -16,6 +16,7 @@ class Player:
 
         for player in game_state["players"]:
             if player["name"] == "TheJoker":
+                print(player['stack'])
                 return int(player["stack"])
 
         # return game_state["players"][game_state["in_action"]]["stack"]

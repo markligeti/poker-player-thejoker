@@ -96,8 +96,11 @@ class Player:
         boolean = False
 
         for card, n in enumerate(sorted_cards):
-            if abs(card - sorted_cards[n + 1]) == 1:
-                boolean = True
-            else:
-                boolean = False
+            try:
+                if abs(card - sorted_cards[n + 1]) == 1:
+                    boolean = True
+                else:
+                    boolean = False
+            except():
+                continue
         return boolean

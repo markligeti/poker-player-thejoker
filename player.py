@@ -1,7 +1,5 @@
-import sys
-
 class Player:
-    VERSION = "4.0.3"
+    VERSION = "4.0.4"
 
     players = None
     my_id = None
@@ -25,7 +23,6 @@ class Player:
         self.player_info = self.get_player_info()
 
         bet = self.set_own_bet()
-        self.print_err("this is betrequest")
         return bet
 
 
@@ -74,7 +71,3 @@ class Player:
         for player in self.players:
             if player["id"] == self.my_id:
                 return player["hole_cards"]
-
-    def print_err(message, end='\n'):
-        '''Print to standard error'''
-        print(message, end=end, file=sys.stderr)

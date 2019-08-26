@@ -2,7 +2,7 @@ from random import randint
 
 
 class Player:
-    VERSION = "1.7.3"
+    VERSION = "1.8"
 
     def bet_request(self, game_state):
         # small_blind = game_state['small_blind']
@@ -16,7 +16,7 @@ class Player:
 
         for player in game_state["players"]:
             if player["name"] == "TheJoker":
-                return player["stack"]
+                return int(player["stack"])
 
         # return game_state["players"][game_state["in_action"]]["stack"]
 

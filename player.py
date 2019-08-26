@@ -44,19 +44,19 @@ class Player:
     def set_own_bet(self):
         if self.round == 0:
             return 0
-        elif self.get_minimum_amount_to_bet() > 400:
-            return 0
         elif self.check_for_pairs():
             return self.get_my_stack()
         elif self.check_flush():
             return self.get_my_stack()
         elif self.check_straight():
             return self.get_my_stack()
+        elif self.get_minimum_amount_to_bet() > 400:
+            return 0
         else:
             return self.get_minimum_amount_to_bet()
 
     def get_minimum_amount_to_bet(self):
-        return int(self.current_buy_in) - int(self.player_info["bet"]) + int(self.minimum_raise)
+        return int(self.current_buy_in) - int(self.player_info["bet"])
 
     def check_for_pairs(self):
         for c_card in self.com_cards:

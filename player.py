@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "2.2.5"
+    VERSION = "2.2.8"
 
     players = None
     my_id = None
@@ -11,13 +11,13 @@ class Player:
         self.players = game_state["players"]
         self.my_id = game_state["in_action"]
         self.round = game_state["round"]
-        self.hand = self.players[self.my_id]["hole_cards"]
-        self.com_cards = game_state["community_cards"]
+        # self.hand = self.players[self.my_id]["hole_cards"]
+        # self.com_cards = game_state["community_cards"]
 
-        print("PRINT MY HAND: " + self.hand)
-        print("PRINT COM CARDS: " + self.com_cards)
+        # print("PRINT MY HAND: " + self.hand)
+        # print("PRINT COM CARDS: " + self.com_cards)
 
-        bet = self.set_own_bet(game_state)
+        bet = self.set_own_bet()
         return bet
 
     def get_my_stack(self):
@@ -29,7 +29,7 @@ class Player:
     def showdown(self, game_state):
         pass
 
-    def set_own_bet(self, game_state):
+    def set_own_bet(self):
         if self.round == 0:
             return 0
         else:

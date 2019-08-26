@@ -8,7 +8,8 @@ class Player:
         self.players = game_state["players"]
         self.my_id = game_state["in_action"]
 
-        bet = self.get_my_stack()
+        bet = self.set_own_bet(game_state)
+
         return bet
 
     def get_my_stack(self):
@@ -19,3 +20,9 @@ class Player:
 
     def showdown(self, game_state):
         pass
+
+    def set_own_bet(self, game_state):
+        if game_state["round"] == 0:
+            return 0
+        else:
+            return self.get_my_stack()

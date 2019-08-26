@@ -44,16 +44,13 @@ class Player:
         if self.round == 0:
             return 0
 
-        elif len(self.com_cards) == 0:
-            if self.get_minimum_amount_to_bet() > 400:
-                return 0
-            else:
-                return self.get_minimum_amount_to_bet()
+        elif self.get_minimum_amount_to_bet() > 400:
+            return 0
 
         elif self.check_for_pairs():
             return self.get_my_stack()
         else:
-            return 0
+            return self.get_minimum_amount_to_bet()
 
     def get_minimum_amount_to_bet(self):
 

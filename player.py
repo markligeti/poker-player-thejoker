@@ -29,8 +29,18 @@ class Player:
     def set_own_bet(self):
         if self.round == 0:
             return 0
-        else:
+        elif self.check_for_pairs():
             return self.get_my_stack()
+        else:
+            return 0
+
+    def check_for_pairs(self):
+
+        for c_card in self.com_cards:
+            for card in self.hand:
+                if c_card['rank'] == card['rank']:
+                    return True
+        return False
 
     def get_hand(self):
         for player in self.players:

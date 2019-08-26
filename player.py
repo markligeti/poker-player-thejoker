@@ -10,7 +10,7 @@ class Player:
         highest_bet = self.get_player_bets(game_state)
 
         if highest_bet > small_blind * 2:
-            return highest_bet + randint(1, 10)
+            return highest_bet + small_blind
 
         else:
             return small_blind * 2

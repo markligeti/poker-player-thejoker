@@ -20,6 +20,3 @@ class Player:
                 player_bet = player['bet']
 
         return player_bet
-
-
-

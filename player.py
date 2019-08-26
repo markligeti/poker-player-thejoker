@@ -1,11 +1,7 @@
 class Player:
-    VERSION = "2.0"
+    VERSION = "2.0.1"
 
     def betRequest(self, game_state):
-        com_cards = self.get_com_cards(game_state)
-        hole_cards = self.get_hole_cards(game_state)
-        player_bets = self.get_player_bets(game_state)
-
         for player in game_state["players"]:
             if player["id"] == game_state["in_action"]:
                 print(player["stack"])

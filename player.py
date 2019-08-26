@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "4.0.6"
+    VERSION = "6.0"
 
     players = None
     my_id = None
@@ -12,18 +12,18 @@ class Player:
     player_info = None
 
     def betRequest(self, game_state):
-        self.players = game_state["players"]
-        self.my_id = game_state["in_action"]
-        self.round = game_state["round"]
-        self.com_cards = game_state["community_cards"]
-        self.hand = self.get_hand()
-        self.bet_index = game_state["bet_index"]
-        self.current_buy_in = game_state["current_buy_in"]
-        self.minimum_raise = game_state["minimum_raise"]
-        self.player_info = self.get_player_info()
-
-        bet = self.set_own_bet()
-        return bet
+        # self.players = game_state["players"]
+        # self.my_id = game_state["in_action"]
+        # self.round = game_state["round"]
+        # self.com_cards = game_state["community_cards"]
+        # self.hand = self.get_hand()
+        # self.bet_index = game_state["bet_index"]
+        # self.current_buy_in = game_state["current_buy_in"]
+        # self.minimum_raise = game_state["minimum_raise"]
+        # self.player_info = self.get_player_info()
+        #
+        # bet = self.set_own_bet()
+        return 0
 
 
     def get_player_info(self):

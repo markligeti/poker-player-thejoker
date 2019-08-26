@@ -1,5 +1,5 @@
 class Player:
-    VERSION = "4.0.9"
+    VERSION = "5.0"
 
     players = None
     my_id = None
@@ -54,7 +54,7 @@ class Player:
             return self.get_minimum_amount_to_bet()
 
     def get_minimum_amount_to_bet(self):
-        return int(self.current_buy_in) - int(self.player_info["bet"]) + int(self.minimum_raise)
+        return int(self.current_buy_in) - int(self.player_info["bet"])
 
     def check_for_pairs(self):
         for c_card in self.com_cards:
